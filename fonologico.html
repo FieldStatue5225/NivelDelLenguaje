@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel Fonológico - Niveles de Lenguaje</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="purple-theme">
+    <!-- OVERLAY DE TRANSICIÓN CIRCULAR -->
+    <div class="page-transition-overlay expanding" aria-hidden="true"></div>
+
+    <!-- NAVBAR - APARECE EN TODAS LAS PÁGINAS -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="fonologico.html" class="navbar-link">Fonológico</a>
+            <a href="index.html" class="navbar-title-link">
+                <h1 class="navbar-title">Niveles de Lenguaje</h1>
+            </a>
+            <a href="morfosintactico.html" class="navbar-link">Morfosintáctico</a>
+        </div>
+        <div class="navbar-line"></div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content" style="padding: 40px 0 0 0;">
+        <!-- CABECERA LISTADA -->
+        <div class="striped-header-container">
+            <div class="striped-header">
+                <h2>Fonológico</h2>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1: Discriminación auditiva NO verbal -->
+        <section class="activity-section">
+            <h3 class="activity-section-title">Discriminación auditiva NO verbal</h3>
+            <div class="activity-content-grid">
+                <!-- Columna Izquierda: Ficha Técnica -->
+                <div class="activity-card-container">
+                    <ul class="metadata-list">
+                        <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Identificar los sonidos de los fonemas en palabras cotidianas, identificar sonido inicial, medio, final.</li>
+                        <li class="metadata-item"><span class="metadata-label">Edad:</span> 4 a 6 años.</li>
+                        <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Fácil.</li>
+                        <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Identificar sonidos del ambiente mediante la discriminación auditiva de estímulos no verbales presentados en formato digital.</li>
+                        <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado.</li>
+                    </ul>
+                    <div class="metadata-how-to">
+                        <span class="metadata-how-to-title">¿Cómo se aplica?</span>
+                        <p class="metadata-item">El terapeuta o docente reproduce un sonido y modela la respuesta correcta durante los primeros ensayos. Posteriormente el estudiante identifica de manera autónoma la imagen correspondiente.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Actividades/Juegos -->
+                <div class="activity-games-column">
+                    <!-- Juego 1: Oración Completa -->
+                    <div class="game-card" id="cloze-card">
+                        <div class="game-info">
+                            <span class="game-title">Completar la Oración</span>
+                            <p class="game-description">Completa la oración seleccionando la palabra correcta de las opciones inferiores.</p>
+                        </div>
+                        <div class="mock-cloze-game">
+                            <div class="game-level-header">
+                                <span class="game-level-indicator" id="cloze-level-indicator">Ejemplo 1 de 3</span>
+                            </div>
+                            <div class="cloze-sentence" id="cloze-sentence-container">
+                                <!-- Generado dinámicamente -->
+                            </div>
+                            <div class="cloze-options" id="cloze-options-container">
+                                <!-- Generado dinámicamente -->
+                            </div>
+                            <div class="game-controls-row">
+                                <button class="game-reset-btn" id="cloze-reset">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                    Reiniciar
+                                </button>
+                                <button class="game-next-btn" id="cloze-next" style="display: none;">
+                                    Siguiente Ejemplo ➔
+                                </button>
+                            </div>
+                        </div>
+                        <a href="https://wordwall.net/resource/114501019" target="_blank" rel="noopener" class="game-secondary-btn">Jugar en Wordwall ↗</a>
+                    </div>
+
+                    <!-- Juego 2: ¿Dónde escuchas /S/? -->
+                    <div class="game-card" id="s-quiz-card">
+                        <div class="game-info">
+                            <span class="game-title">¿Dónde escuchas /S/?</span>
+                            <p class="game-description">Escucha y marca. Presiona el parlante de cada palabra para escuchar su sonido, luego presiona el botón para responder.</p>
+                        </div>
+                        <div class="game-level-header">
+                            <span class="game-level-indicator" id="s-quiz-level-indicator">Ejemplo 1 de 3</span>
+                        </div>
+                        <div class="mock-quiz-grid" id="s-quiz-grid-container">
+                            <!-- Generado dinámicamente -->
+                        </div>
+                        <div class="game-controls-row">
+                            <button class="game-next-btn" id="s-quiz-next" style="display: none;">
+                                Siguiente Ejemplo ➔
+                            </button>
+                        </div>
+                        <a href="https://wordwall.net/resource/114501537" target="_blank" rel="noopener" class="game-secondary-btn">Jugar en Wordwall ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: Discriminación Auditiva Verbal (Fondo Morado Profundo) -->
+        <div class="dark-purple-section">
+            <section class="activity-section">
+                <h3 class="activity-section-title">Discriminación Auditiva Verbal</h3>
+                <div class="activity-content-grid">
+                    <!-- Columna Izquierda: Ficha Técnica -->
+                    <div class="activity-card-container">
+                        <ul class="metadata-list">
+                            <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Identificar los sonidos de los fonemas en palabras cotidianas, identificar sonido inicial, medio, final.</li>
+                            <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Discriminación auditiva verbal.</li>
+                            <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                            <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Media.</li>
+                            <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Discriminar fonemas presentes en pares mínimos mediante actividades auditivas.</li>
+                            <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Facilitación fonológica.</li>
+                        </ul>
+                        <div class="metadata-how-to">
+                            <span class="metadata-how-to-title">¿Cómo se aplica?</span>
+                            <p class="metadata-item">El profesional enfatiza el fonema que cambia entre ambas palabras para ayudar al estudiante a percibir la diferencia.</p>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Actividades/Juegos -->
+                    <div class="activity-games-column">
+                        <div class="game-card" id="sa-quiz-card">
+                            <div class="game-info">
+                                <span class="game-title">Escucha y selecciona</span>
+                                <p class="game-description">Presiona el parlante superior para escuchar la palabra de la imagen. Luego, selecciona la sílaba correcta para completarla.</p>
+                            </div>
+                            <div class="game-level-header">
+                                <span class="game-level-indicator" id="sa-level-indicator">Ejemplo 1 de 3</span>
+                            </div>
+                            <div class="mock-sa-game">
+                                <div class="sa-display-card">
+                                    <div id="sa-illustration-container">
+                                        <!-- Inyectado dinámicamente -->
+                                    </div>
+                                    <button class="sa-speaker-main" id="sa-speaker" aria-label="Escuchar palabra objetivo">🔊</button>
+                                    <div class="sa-word-blank" id="sa-word-display">___sa</div>
+                                </div>
+                                <div class="sa-options-grid" id="sa-options-container">
+                                    <!-- Inyectado dinámicamente -->
+                                </div>
+                            </div>
+                            <div class="game-controls-row">
+                                <button class="game-next-btn" id="sa-next" style="display: none;">
+                                    Siguiente Ejemplo ➔
+                                </button>
+                            </div>
+                            <a href="https://wordwall.net/resource/113362961" target="_blank" rel="noopener" class="game-secondary-btn">Jugar en Wordwall ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECCIÓN 3: Memoria Auditiva -->
+        <section class="activity-section" style="margin-top: 60px;">
+            <h3 class="activity-section-title">Memoria Auditiva</h3>
+            <div class="activity-content-grid">
+                <!-- Columna Izquierda: Ficha Técnica -->
+                <div class="activity-card-container">
+                    <ul class="metadata-list">
+                        <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Identificar los sonidos de los fonemas en palabras cotidianas, identificar sonido inicial, medio, final.</li>
+                        <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Memoria Auditiva.</li>
+                        <li class="metadata-item"><span class="metadata-label">Actividad:</span> Repite la secuencia.</li>
+                        <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                        <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Media.</li>
+                        <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Retener y reproducir secuencias de palabras escuchadas fortaleciendo la memoria auditiva verbal.</li>
+                        <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado y repetición guiada.</li>
+                    </ul>
+                    <div class="metadata-how-to">
+                        <span class="metadata-how-to-title">¿Cómo se aplica?</span>
+                        <p class="metadata-item">El profesional menciona una secuencia corta de palabras y solicita que el estudiante la repita exactamente en el mismo orden. A medida que avanza la actividad, aumenta progresivamente la cantidad de palabras.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Actividades/Juegos -->
+                <div class="activity-games-column">
+                    <div class="game-card" id="memory-card">
+                        <div class="game-info">
+                            <span class="game-title">Memoria Auditiva</span>
+                            <p class="game-description">Juego de Parejas. Encuentra las parejas haciendo clic en las tarjetas de juego. ¡Las mariposas emitirán un sonido especial!</p>
+                        </div>
+                        <div class="game-level-header">
+                            <span class="game-level-indicator" id="memory-level-indicator">Ejemplo 1 de 3</span>
+                        </div>
+                        <div class="mock-memory-board" id="memory-board">
+                            <!-- Inyectado dinámicamente -->
+                        </div>
+                        <div class="game-controls-row">
+                            <button class="game-reset-btn" id="memory-reset">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                Reiniciar
+                            </button>
+                            <button class="game-next-btn" id="memory-next" style="display: none;">
+                                Siguiente Tablero ➔
+                            </button>
+                        </div>
+                        <a href="https://wordwall.net/resource/113362368" target="_blank" rel="noopener" class="game-secondary-btn">Jugar en Wordwall ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: Identificar el sonido (Fondo Morado Profundo) -->
+        <div class="dark-purple-section" style="padding-bottom: 60px;">
+            <section class="activity-section">
+                <h3 class="activity-section-title">Identificar el sonido</h3>
+                <div class="activity-content-grid">
+                    <!-- Columna Izquierda: Ficha Técnica -->
+                    <div class="activity-card-container">
+                        <ul class="metadata-list">
+                            <li class="metadata-item"><span class="metadata-label">Instrucción juego 1:</span> Identificar los sonidos de los fonemas en palabras cotidianas, identificar sonido inicial, medio, final.</li>
+                            <li class="metadata-item"><span class="metadata-label">Instrucción juego 2:</span> Observar las imágenes y palabras y aplaudir según el número de sílabas que poseen.</li>
+                            <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Segmentación silábica.</li>
+                            <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                            <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Media.</li>
+                            <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Segmentar palabras en sílabas mediante apoyo auditivo y visual.</li>
+                            <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado y práctica guiada.</li>
+                        </ul>
+                        <div class="metadata-how-to">
+                            <span class="metadata-how-to-title">¿Cómo se aplica?</span>
+                            <p class="metadata-item">El profesional segmenta inicialmente las palabras acompañando cada sílaba con un aplauso. Posteriormente el estudiante realiza la segmentación de manera independiente.</p>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Actividades/Juegos -->
+                    <div class="activity-games-column">
+                        <!-- Recurso Educaplay -->
+                        <div class="game-card">
+                            <div class="game-info">
+                                <span class="game-title">Identifica el sonido (Educaplay)</span>
+                                <p class="game-description">Actividad lúdica interactiva de discriminación de fonemas en Educaplay.</p>
+                            </div>
+                            <div class="mock-educaplay-logo">
+                                <div class="educaplay-banner" aria-hidden="true">
+                                    <span class="educaplay-text-logo">educaplay</span>
+                                    <span class="educaplay-tagline">Recursos Educativos</span>
+                                </div>
+                                <a href="https://www.educaplay.com/learning-resources/29141593-identifica_el_sonido.html" target="_blank" rel="noopener" class="educaplay-link-btn">Iniciar Actividad en Educaplay ↗</a>
+                            </div>
+                        </div>
+
+                        <!-- Juego de Aplausos -->
+                        <div class="game-card" id="clapping-card">
+                            <div class="game-info">
+                                <span class="game-title">Aplaudimos Sílabas</span>
+                                <p class="game-description">Presiona el botón de aplauso por cada sílaba de la palabra en pantalla para segmentar correctamente.</p>
+                            </div>
+                            <div class="game-level-header">
+                                <span class="game-level-indicator" id="clapping-level-indicator">Ejemplo 1 de 3</span>
+                            </div>
+                            <div class="mock-clapping">
+                                <div class="clapping-display">
+                                    <div class="clapping-notebook">
+                                        <span class="clapping-notebook-title">Cuaderno de sílabas</span>
+                                        <span class="clapping-notebook-word" id="clapping-word-label">COMPUTADORA</span>
+                                        <div class="clapping-notebook-syllables" id="clapping-notebook-syllables"></div>
+                                    </div>
+                                    <div class="clapping-computer" aria-hidden="true">
+                                        <div class="clapping-screen" id="clapping-screen">MODO SILÁBICO</div>
+                                        <div class="clapping-keyboard"></div>
+                                        <div class="clapping-base"></div>
+                                    </div>
+                                </div>
+                                <div class="clapping-controls">
+                                    <button class="clap-interactive-btn" id="clap-btn" aria-label="Aplaudir">👏</button>
+                                    <div class="clap-feedback" id="clap-feedback">Presiona el botón de aplauso para contar...</div>
+                                    <div class="clapping-syllable-chips" id="clapping-chips">
+                                        <!-- Inyectado dinámicamente -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-controls-row">
+                                <button class="game-next-btn" id="clapping-next" style="display: none;">
+                                    Siguiente Ejemplo ➔
+                                </button>
+                            </div>
+                            <a href="https://wordwall.net/resource/114103410" target="_blank" rel="noopener" class="game-secondary-btn">Jugar en Wordwall ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

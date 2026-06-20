@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel Morfosintáctico - Niveles de Lenguaje</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="terracotta-theme">
+    <!-- OVERLAY DE TRANSICIÓN CIRCULAR -->
+    <div class="page-transition-overlay expanding" aria-hidden="true"></div>
+
+    <!-- NAVBAR - APARECE EN TODAS LAS PÁGINAS -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="fonologico.html" class="navbar-link">Fonológico</a>
+            <a href="index.html" class="navbar-title-link">
+                <h1 class="navbar-title">Niveles de Lenguaje</h1>
+            </a>
+            <a href="morfosintactico.html" class="navbar-link">Morfosintáctico</a>
+        </div>
+        <div class="navbar-line"></div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content" style="padding: 40px 0 0 0;">
+        <!-- CABECERA LISTADA -->
+        <div class="striped-header-container">
+            <div class="striped-header">
+                <h2>Morfosintáctico</h2>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1: Género (Fondo Claro) -->
+        <section class="activity-section" id="seccion-genero">
+            <h3 class="activity-section-title">1. Género</h3>
+            <div class="activity-content-grid">
+                <!-- Columna Izquierda: Ficha Técnica -->
+                <div class="activity-card-container">
+                    <ul class="metadata-list">
+                        <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Identificar personajes y su género.</li>
+                        <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Morfosintáctica.</li>
+                        <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                        <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Fácil.</li>
+                        <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Identificar y utilizar correctamente los artículos definidos según el género de sustantivos comunes mediante apoyo visual.</li>
+                        <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado y reformulación.</li>
+                    </ul>
+                    <div class="metadata-how-to">
+                        <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                        <p class="metadata-item">El terapeuta presenta imágenes de objetos o personas y solicita al estudiante elegir el artículo adecuado. Si comete errores, se reformula la respuesta correcta enfatizando el artículo.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Actividades/Juegos -->
+                <div class="activity-games-column">
+                    <div class="game-card" id="concordance-card">
+                        <div class="game-info">
+                            <span class="game-title">Concordancia de Género y Número</span>
+                            <p class="game-description">Selecciona el artículo correcto (<code>el</code>, <code>la</code>, <code>los</code>, <code>las</code>) que concuerde con el sustantivo que aparece en pantalla.</p>
+                        </div>
+                        <div class="game-level-header">
+                            <span class="game-level-indicator" id="concordance-level-indicator">Ejemplo 1 de 3</span>
+                        </div>
+                        <div class="mock-concordance-game">
+                            <div class="concordance-display-card">
+                                <div class="concordance-noun" id="concordance-noun-display">gata</div>
+                                <div class="concordance-phrase">
+                                    <span class="article-slot" id="concordance-slot">?</span>
+                                    <span id="concordance-phrase-noun">gata</span>
+                                </div>
+                            </div>
+                            <div class="concordance-grid">
+                                <button class="concordance-btn" data-art="el">el</button>
+                                <button class="concordance-btn" data-art="la">la</button>
+                                <button class="concordance-btn" data-art="los">los</button>
+                                <button class="concordance-btn" data-art="las">las</button>
+                            </div>
+                        </div>
+                        <div class="game-controls-row">
+                            <button class="game-next-btn" id="concordance-next" style="display: none;">
+                                Siguiente Ejemplo ➔
+                            </button>
+                        </div>
+                        <a href="https://es.educaplay.com/recursos-educativos/29466689-generos_para_ninos.html" target="_blank" rel="noopener" class="game-secondary-btn">Jugar en Educaplay ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: Número Singular/Plural (Fondo Oscuro) -->
+        <div class="dark-terracotta-section" id="seccion-numero">
+            <section class="activity-section">
+                <h3 class="activity-section-title">2. Número Singular / Plural</h3>
+                <div class="activity-content-grid">
+                    <!-- Columna Izquierda: Ficha Técnica -->
+                    <div class="activity-card-container">
+                        <ul class="metadata-list">
+                            <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Identificar las proporciones de mucha o poca cantidad.</li>
+                            <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Morfosintáctica.</li>
+                            <li class="metadata-item"><span class="metadata-label">Edad:</span> 4 a 6 años.</li>
+                            <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Fácil.</li>
+                            <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Desarrollar el uso y comprensión del número singular y plural en palabras de uso cotidiano.</li>
+                            <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado y reformulación.</li>
+                        </ul>
+                        <div class="metadata-how-to">
+                            <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                            <p class="metadata-item">El terapeuta presenta imágenes con uno o varios elementos y solicita al estudiante identificar la palabra adecuada. Si comete errores, se reformula la respuesta correcta enfatizando la diferencia entre singular y plural.</p>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Actividades/Juegos -->
+                    <div class="activity-games-column">
+                        <div class="game-card">
+                            <div class="game-info">
+                                <span class="game-title">Uno o muchos (Educaplay)</span>
+                                <p class="game-description">Actividad interactiva de discriminación de singular y plural en Educaplay.</p>
+                            </div>
+                            <div class="mock-educaplay-logo">
+                                <div class="educaplay-banner" aria-hidden="true">
+                                    <span class="educaplay-text-logo">educaplay</span>
+                                    <span class="educaplay-tagline">Recursos Educativos</span>
+                                </div>
+                                <a href="https://es.educaplay.com/recursos-educativos/29324766-uno_o_muchos.html" target="_blank" rel="noopener" class="educaplay-link-btn">Iniciar Actividad ↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECCIÓN 3: Sustantivos (Fondo Claro) -->
+        <section class="activity-section" id="seccion-sustantivos">
+            <h3 class="activity-section-title">3. Sustantivos</h3>
+            <div class="activity-content-grid">
+                <!-- Columna Izquierda: Ficha Técnica -->
+                <div class="activity-card-container">
+                    <ul class="metadata-list">
+                        <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Categorizar objetos por secciones de ropa, animales y frutas.</li>
+                        <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Sustantivos.</li>
+                        <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                        <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Fácil.</li>
+                        <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Identificar y nombrar correctamente sustantivos comunes mediante apoyo visual.</li>
+                        <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado y expansión del lenguaje.</li>
+                    </ul>
+                    <div class="metadata-how-to">
+                        <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                        <p class="metadata-item">El profesional presenta imágenes de personas, animales, objetos o lugares. El estudiante debe nombrarlos. Si la respuesta es incompleta o incorrecta, se modela la respuesta correcta y se amplía la información.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Actividades/Juegos -->
+                <div class="activity-games-column">
+                    <div class="game-card">
+                        <div class="game-info">
+                            <span class="game-title">Sustantivos para niños (Educaplay)</span>
+                            <p class="game-description">Relaciona y clasifica sustantivos comunes según sus categorías semánticas en Educaplay.</p>
+                        </div>
+                        <div class="mock-educaplay-logo">
+                            <div class="educaplay-banner" aria-hidden="true">
+                                <span class="educaplay-text-logo">educaplay</span>
+                                <span class="educaplay-tagline">Recursos Educativos</span>
+                            </div>
+                            <a href="https://es.educaplay.com/recursos-educativos/29466556-sustantivos_para_ninos.html" target="_blank" rel="noopener" class="educaplay-link-btn">Iniciar Actividad ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: Adjetivos (Fondo Oscuro) -->
+        <div class="dark-terracotta-section" id="seccion-adjetivos">
+            <section class="activity-section">
+                <h3 class="activity-section-title">4. Adjetivos</h3>
+                <div class="activity-content-grid">
+                    <!-- Columna Izquierda: Ficha Técnica -->
+                    <div class="activity-card-container">
+                        <ul class="metadata-list">
+                            <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Categorizar objetos por alto o pequeño.</li>
+                            <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Adjetivos.</li>
+                            <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                            <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Medio.</li>
+                            <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Identificar y nombrar correctamente adjetivos comunes mediante apoyo visual.</li>
+                            <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado.</li>
+                        </ul>
+                        <div class="metadata-how-to">
+                            <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                            <p class="metadata-item">El profesional presenta imágenes de personas, animales, objetos o lugares. El estudiante debe nombrarlos y categorizarlos según si son altos o pequeños.</p>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Actividades/Juegos -->
+                    <div class="activity-games-column">
+                        <div class="game-card">
+                            <div class="game-info">
+                                <span class="game-title">¿Alto o pequeño? (Wordwall)</span>
+                                <p class="game-description">Juego interactivo para clasificar elementos según adjetivos calificativos en Wordwall.</p>
+                            </div>
+                            <div class="mock-wordwall-logo">
+                                <div class="wordwall-banner" aria-hidden="true">
+                                    <span class="wordwall-text-logo">Wordwall</span>
+                                    <span class="wordwall-tagline">Recursos Interactivos</span>
+                                </div>
+                                <a href="https://wordwall.net/es/resource/114510041" target="_blank" rel="noopener" class="wordwall-link-btn">Iniciar Actividad ↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECCIÓN 5: Adverbios (Fondo Claro) -->
+        <section class="activity-section" id="seccion-adverbios">
+            <h3 class="activity-section-title">5. Adverbios</h3>
+            <div class="activity-content-grid">
+                <!-- Columna Izquierda: Ficha Técnica -->
+                <div class="activity-card-container">
+                    <ul class="metadata-list">
+                        <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Categorizar objetos por arriba o abajo.</li>
+                        <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Adverbios.</li>
+                        <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                        <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Medio.</li>
+                        <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Identificar y nombrar correctamente adverbios comunes mediante apoyo visual.</li>
+                        <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado.</li>
+                    </ul>
+                    <div class="metadata-how-to">
+                        <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                        <p class="metadata-item">El terapeuta presenta imágenes de personas, animales, objetos o lugares. El estudiante debe nombrarlos e identificar si el objeto está ubicado arriba o abajo.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Actividades/Juegos -->
+                <div class="activity-games-column">
+                    <div class="game-card">
+                        <div class="game-info">
+                            <span class="game-title">Arriba o abajo (Educaplay)</span>
+                            <p class="game-description">Actividad lúdica interactiva de nociones espaciales y adverbios de lugar en Educaplay.</p>
+                        </div>
+                        <div class="mock-educaplay-logo">
+                            <div class="educaplay-banner" aria-hidden="true">
+                                <span class="educaplay-text-logo">educaplay</span>
+                                <span class="educaplay-tagline">Recursos Educativos</span>
+                            </div>
+                            <a href="https://es.educaplay.com/recursos-educativos/5677433-arriba_abajo.html" target="_blank" rel="noopener" class="educaplay-link-btn">Iniciar Actividad ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: Pronombres (Fondo Oscuro) -->
+        <div class="dark-terracotta-section" id="seccion-pronombres">
+            <section class="activity-section">
+                <h3 class="activity-section-title">6. Pronombres</h3>
+                <div class="activity-content-grid">
+                    <!-- Columna Izquierda: Ficha Técnica -->
+                    <div class="activity-card-container">
+                        <ul class="metadata-list">
+                            <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Identificar y utilizar pronombres personales (él, ella, ellos, ellas) para referirse a personas o personajes en imágenes.</li>
+                            <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Pronombres.</li>
+                            <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                            <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Medio.</li>
+                            <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Sustituir nombres propios o comunes por el pronombre personal correspondiente según género y número en oraciones sencillas.</li>
+                            <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado.</li>
+                        </ul>
+                        <div class="metadata-how-to">
+                            <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                            <p class="metadata-item">El terapeuta presenta imágenes de personas realizando acciones y modela el uso de los pronombres preguntando "¿Quién hace la acción? ¿Él o ella?".</p>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Actividades/Juegos -->
+                    <div class="activity-games-column">
+                        <div class="game-card">
+                            <div class="game-info">
+                                <span class="game-title">Pronombres para niños (Educaplay)</span>
+                                <p class="game-description">Actividad didáctica interactiva de identificación y concordancia de pronombres en Educaplay.</p>
+                            </div>
+                            <div class="mock-educaplay-logo">
+                                <div class="educaplay-banner" aria-hidden="true">
+                                    <span class="educaplay-text-logo">educaplay</span>
+                                    <span class="educaplay-tagline">Recursos Educativos</span>
+                                </div>
+                                <a href="https://es.educaplay.com/recursos-educativos/29466720-pronombres_para_ninos.html" target="_blank" rel="noopener" class="educaplay-link-btn">Iniciar Actividad ↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECCIÓN 7: Verbos (Fondo Claro) -->
+        <section class="activity-section" id="seccion-verbos">
+            <h3 class="activity-section-title">7. Verbos</h3>
+            <div class="activity-content-grid">
+                <!-- Columna Izquierda: Ficha Técnica -->
+                <div class="activity-card-container">
+                    <ul class="metadata-list">
+                        <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Observar la acción realizada e identificarla.</li>
+                        <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Verbos.</li>
+                        <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                        <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Fácil.</li>
+                        <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Identificar y utilizar correctamente verbos de acción a partir de imágenes y situaciones cotidianas.</li>
+                        <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado y expansión del lenguaje.</li>
+                    </ul>
+                    <div class="metadata-how-to">
+                        <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                        <p class="metadata-item">El terapeuta presenta imágenes de personas realizando diferentes acciones. El estudiante debe identificar el verbo correspondiente. Si la respuesta es incorrecta o incompleta, se modela la respuesta correcta y se amplía la oración.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Actividades/Juegos -->
+                <div class="activity-games-column">
+                    <div class="game-card">
+                        <div class="game-info">
+                            <span class="game-title">Verbos para niños mini quiz (Educaplay)</span>
+                            <p class="game-description">Quiz interactivo de opción múltiple para reconocer acciones verbales en Educaplay.</p>
+                        </div>
+                        <div class="mock-educaplay-logo">
+                            <div class="educaplay-banner" aria-hidden="true">
+                                <span class="educaplay-text-logo">educaplay</span>
+                                <span class="educaplay-tagline">Recursos Educativos</span>
+                            </div>
+                            <a href="https://es.educaplay.com/recursos-educativos/29465096-verbos_para_ninos_mini_quiz.html" target="_blank" rel="noopener" class="educaplay-link-btn">Iniciar Actividad ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 8: Preposiciones (Fondo Oscuro) -->
+        <div class="dark-terracotta-section" id="seccion-preposiciones">
+            <section class="activity-section">
+                <h3 class="activity-section-title">8. Preposiciones</h3>
+                <div class="activity-content-grid">
+                    <!-- Columna Izquierda: Ficha Técnica -->
+                    <div class="activity-card-container">
+                        <ul class="metadata-list">
+                            <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Observar y ordenar objetos dentro de un espacio.</li>
+                            <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Preposiciones.</li>
+                            <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                            <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Fácil.</li>
+                            <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Identificar y ordenar objetos dentro de un espacio utilizando relaciones preposicionales.</li>
+                            <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado y expansión del lenguaje.</li>
+                        </ul>
+                        <div class="metadata-how-to">
+                            <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                            <p class="metadata-item">El terapeuta presenta un espacio o lugar en donde los alumnos deben posicionar los elementos según la preposición espacial indicada.</p>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Actividades/Juegos -->
+                    <div class="activity-games-column">
+                        <div class="game-card">
+                            <div class="game-info">
+                                <span class="game-title">Ordena objetos en la habitación (Educaplay)</span>
+                                <p class="game-description">Ubica los objetos en el lugar correspondiente usando preposiciones espaciales en Educaplay.</p>
+                            </div>
+                            <div class="mock-educaplay-logo">
+                                <div class="educaplay-banner" aria-hidden="true">
+                                    <span class="educaplay-text-logo">educaplay</span>
+                                    <span class="educaplay-tagline">Recursos Educativos</span>
+                                </div>
+                                <a href="https://es.educaplay.com/recursos-educativos/29464883-ordena_objetos_en_la_habitacion.html" target="_blank" rel="noopener" class="educaplay-link-btn">Iniciar Actividad ↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECCIÓN 9: Nexos (Fondo Claro) -->
+        <section class="activity-section" id="seccion-nexos">
+            <h3 class="activity-section-title">9. Nexos</h3>
+            <div class="activity-content-grid">
+                <!-- Columna Izquierda: Ficha Técnica -->
+                <div class="activity-card-container">
+                    <ul class="metadata-list">
+                        <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Leer u observar las oraciones y seleccionar el nexo correcto para completar la idea.</li>
+                        <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Nexos.</li>
+                        <li class="metadata-item"><span class="metadata-label">Edad:</span> 6 a 8 años.</li>
+                        <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Fácil.</li>
+                        <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Identificar y utilizar correctamente nexos simples para unir palabras y oraciones mediante apoyo visual y ejemplos contextualizados.</li>
+                        <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado y reformulación.</li>
+                    </ul>
+                    <div class="metadata-how-to">
+                        <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                        <p class="metadata-item">El terapeuta presenta dos ideas simples y solicita al estudiante elegir el nexo adecuado (y, o, pero). Si el estudiante se equivoca, se modela la respuesta correcta enfatizando el significado del nexo utilizado.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Actividades/Juegos -->
+                <div class="activity-games-column">
+                    <div class="game-card">
+                        <div class="game-info">
+                            <span class="game-title">Nexos para niños (Educaplay)</span>
+                            <p class="game-description">Completa oraciones seleccionando nexos de unión y coordinación en Educaplay.</p>
+                        </div>
+                        <div class="mock-educaplay-logo">
+                            <div class="educaplay-banner" aria-hidden="true">
+                                <span class="educaplay-text-logo">educaplay</span>
+                                <span class="educaplay-tagline">Recursos Educativos</span>
+                            </div>
+                            <a href="https://es.educaplay.com/recursos-educativos/29465241-nexos_para_ninos.html" target="_blank" rel="noopener" class="educaplay-link-btn">Iniciar Actividad ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 10: Oraciones simples (Fondo Oscuro) -->
+        <div class="dark-terracotta-section" id="seccion-oraciones-simples">
+            <section class="activity-section">
+                <h3 class="activity-section-title">10. Oraciones Simples</h3>
+                <div class="activity-content-grid">
+                    <!-- Columna Izquierda: Ficha Técnica -->
+                    <div class="activity-card-container">
+                        <ul class="metadata-list">
+                            <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Identificar y ordenar oraciones simples según el orden correcto.</li>
+                            <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Oraciones Simples.</li>
+                            <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                            <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Medio.</li>
+                            <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Ordenar oraciones simples para lograr agrupar u ordenar en el orden correcto siguiendo la estructura gramatical (Sujeto + Verbo + Objeto).</li>
+                            <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado.</li>
+                        </ul>
+                        <div class="metadata-how-to">
+                            <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                            <p class="metadata-item">El profesional presenta palabras desordenadas y guía al estudiante para colocarlas en el orden correcto (personaje + acción + objeto) a fin de otorgarles sentido lingüístico.</p>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Actividades/Juegos -->
+                    <div class="activity-games-column">
+                        <div class="game-card" id="syntax-card">
+                            <div class="game-info">
+                                <span class="game-title">Ordenar la Oración</span>
+                                <p class="game-description">Presiona las palabras desordenadas en la parte inferior en la secuencia correcta para formular una oración coherente.</p>
+                            </div>
+                            <div class="game-level-header">
+                                <span class="game-level-indicator" id="syntax-level-indicator">Ejemplo 1 de 3</span>
+                            </div>
+                            <div class="mock-syntax-game">
+                                <div class="syntax-sentence-area" id="syntax-sentence-display">
+                                    <!-- Inyectado por JS -->
+                                </div>
+                                <div class="syntax-words-pool" id="syntax-words-pool">
+                                    <!-- Inyectado por JS -->
+                                </div>
+                                <div class="game-controls-row">
+                                    <button class="game-reset-btn" id="syntax-reset">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                        Reiniciar
+                                    </button>
+                                    <button class="game-next-btn" id="syntax-next" style="display: none;">
+                                        Siguiente Ejemplo ➔
+                                    </button>
+                                </div>
+                            </div>
+                            <a href="https://wordwall.net/resource/114508984" target="_blank" rel="noopener" class="game-secondary-btn">Jugar en Wordwall ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECCIÓN 11: Oraciones complejas (Fondo Claro) -->
+        <section class="activity-section" id="seccion-oraciones-complejas">
+            <h3 class="activity-section-title">11. Oraciones Complejas</h3>
+            <div class="activity-content-grid">
+                <!-- Columna Izquierda: Ficha Técnica -->
+                <div class="activity-card-container">
+                    <ul class="metadata-list">
+                        <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Identificar y ordenar oraciones complejas que contienen nexos temporales o causales.</li>
+                        <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Oraciones Complejas.</li>
+                        <li class="metadata-item"><span class="metadata-label">Edad:</span> 5 a 7 años.</li>
+                        <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Medio.</li>
+                        <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Estructurar oraciones complejas de dos cláusulas unidas por nexos (porque, cuando, para que) logrando coherencia semántica y orden sintáctico.</li>
+                        <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Modelado.</li>
+                    </ul>
+                    <div class="metadata-how-to">
+                        <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                        <p class="metadata-item">El terapeuta presenta dos partes de una oración y guía al estudiante para unirlas de forma lógica utilizando nexos causales o temporales.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Actividades/Juegos -->
+                <div class="activity-games-column">
+                    <div class="game-card">
+                        <div class="game-info">
+                            <span class="game-title">Oraciones complejas para niños (Educaplay)</span>
+                            <p class="game-description">Actividad lúdica en Educaplay para relacionar ideas complejas utilizando nexos de subordinación.</p>
+                        </div>
+                        <div class="mock-educaplay-logo">
+                            <div class="educaplay-banner" aria-hidden="true">
+                                <span class="educaplay-text-logo">educaplay</span>
+                                <span class="educaplay-tagline">Recursos Educativos</span>
+                            </div>
+                            <a href="https://es.educaplay.com/recursos-educativos/29465366-oraciones_complejas_para_ninos.html" target="_blank" rel="noopener" class="educaplay-link-btn">Iniciar Actividad ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 12: Conciencia sintáctica (Fondo Oscuro) -->
+        <div class="dark-terracotta-section" id="seccion-conciencia-sintactica">
+            <section class="activity-section">
+                <h3 class="activity-section-title">12. Conciencia Sintáctica</h3>
+                <div class="activity-content-grid">
+                    <!-- Columna Izquierda: Ficha Técnica -->
+                    <div class="activity-card-container">
+                        <ul class="metadata-list">
+                            <li class="metadata-item"><span class="metadata-label">Instrucción:</span> Identificar las oraciones en el orden correcto y secuencias temporales coherentes.</li>
+                            <li class="metadata-item"><span class="metadata-label">Habilidad:</span> Morfosintáctica.</li>
+                            <li class="metadata-item"><span class="metadata-label">Edad:</span> 4 a 6 años.</li>
+                            <li class="metadata-item"><span class="metadata-label">Nivel de dificultad:</span> Fácil.</li>
+                            <li class="metadata-item"><span class="metadata-label">Objetivo:</span> Desarrollar la capacidad de identificar y ordenar secuencias lógicas y gramaticales para formular expresiones coherentes.</li>
+                            <li class="metadata-item"><span class="metadata-label">Estrategia utilizada:</span> Secuenciación guiada por imágenes.</li>
+                        </ul>
+                        <div class="metadata-how-to">
+                            <span class="metadata-how-to-title">¿Cómo aplicarla?</span>
+                            <p class="metadata-item">El profesional fomenta la descripción verbal de cada cuadro pidiendo que el estudiante los ordene según qué ocurre en el inicio, desarrollo y desenlace de la historia.</p>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Actividades/Juegos -->
+                    <div class="activity-games-column">
+                        <div class="game-card" id="sequence-card-game">
+                            <div class="game-info">
+                                <span class="game-title" id="sequence-title">Secuencia de la Flor</span>
+                                <p class="game-description">Presiona cada ilustración para asignarle su orden cronológico (1, 2 o 3).</p>
+                            </div>
+                            <div class="game-level-header">
+                                <span class="game-level-indicator" id="sequence-level-indicator">Ejemplo 1 de 3</span>
+                            </div>
+                            <div class="mock-sequence-game">
+                                <div class="sequence-board" id="sequence-board">
+                                    <!-- Inyectado por JS -->
+                                </div>
+                                <div class="game-controls-row">
+                                    <button class="game-reset-btn" id="sequence-reset">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                        Reiniciar
+                                    </button>
+                                    <button class="game-next-btn" id="sequence-next" style="display: none;">
+                                        Siguiente Ejemplo ➔
+                                    </button>
+                                </div>
+                            </div>
+                            <a href="https://wordwall.net/es/resource/114509569" target="_blank" rel="noopener" class="game-secondary-btn">Jugar en Wordwall ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
