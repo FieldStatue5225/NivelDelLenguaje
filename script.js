@@ -697,7 +697,12 @@ function initFonologicoGames() {
                 word: "casa",
                 blank: "___sa",
                 correct: "Ca",
-                options: ["Si", "La", "Me", "Ca"],
+                options: [
+                    { syl: "Ca", word: "casa" },
+                    { syl: "Ta", word: "tasa" },
+                    { syl: "Pa", word: "pasa" },
+                    { syl: "Ma", word: "masa" }
+                ],
                 markup: `
                     <div class="sa-house-container" aria-hidden="true">
                         <div class="sa-roof"></div>
@@ -713,7 +718,12 @@ function initFonologicoGames() {
                 word: "mesa",
                 blank: "___sa",
                 correct: "Me",
-                options: ["Si", "La", "Me", "Ca"],
+                options: [
+                    { syl: "Me", word: "mesa" },
+                    { syl: "Pe", word: "pesa" },
+                    { syl: "Be", word: "besa" },
+                    { syl: "Le", word: "lesa" }
+                ],
                 markup: `
                     <div class="sa-table-container" aria-hidden="true">
                         <div class="sa-table-top"></div>
@@ -726,7 +736,12 @@ function initFonologicoGames() {
                 word: "sopa",
                 blank: "___pa",
                 correct: "So",
-                options: ["Te", "Ro", "So", "Lu"],
+                options: [
+                    { syl: "So", word: "sopa" },
+                    { syl: "Ro", word: "ropa" },
+                    { syl: "Co", word: "copa" },
+                    { syl: "Po", word: "popa" }
+                ],
                 markup: `
                     <div class="sa-soup-container" aria-hidden="true">
                         <div class="sa-soup-steam steam1"></div>
@@ -738,7 +753,6 @@ function initFonologicoGames() {
             }
         ];
         let currentIndex = 0;
-        let isSpeaking = false;
 
         function loadSaExample() {
             const data = saExamples[currentIndex];
@@ -747,11 +761,14 @@ function initFonologicoGames() {
             document.getElementById('sa-illustration-container').innerHTML = data.markup;
             document.getElementById('sa-next').style.display = 'none';
 
+            // Mezclar aleatoriamente las opciones (shuffle)
+            const shuffledOptions = [...data.options].sort(() => Math.random() - 0.5);
+
             const colors = ['blue', 'red', 'orange', 'green'];
             let optionsHtml = '';
-            data.options.forEach((opt, idx) => {
+            shuffledOptions.forEach((opt, idx) => {
                 const color = colors[idx % colors.length];
-                optionsHtml += `<button class="sa-opt-btn ${color}" data-syllable="${opt}">${opt}</button>`;
+                optionsHtml += `<button class="sa-opt-btn ${color}" data-syllable="${opt.syl}">${opt.syl}</button>`;
             });
             document.getElementById('sa-options-container').innerHTML = optionsHtml;
 
@@ -765,25 +782,33 @@ function initFonologicoGames() {
             const optionButtons = saQuizCard.querySelectorAll('.sa-opt-btn');
 
             speaker.onclick = function() {
-                if (isSpeaking) return;
-                isSpeaking = true;
                 speaker.classList.add('speaking');
                 
+                // Temporizador de seguridad para remover la clase visual
+                const safetyTimeout = setTimeout(() => {
+                    speaker.classList.remove('speaking');
+                }, 1500);
+
                 const utterance = speakWord(data.word);
                 if (utterance) {
                     utterance.onend = function() {
+                        clearTimeout(safetyTimeout);
                         speaker.classList.remove('speaking');
-                        isSpeaking = false;
+                    };
+                    utterance.onerror = function() {
+                        clearTimeout(safetyTimeout);
+                        speaker.classList.remove('speaking');
                     };
                 } else {
+                    clearTimeout(safetyTimeout);
                     speaker.classList.remove('speaking');
-                    isSpeaking = false;
                 }
             };
 
             optionButtons.forEach(btn => {
                 btn.onclick = function() {
                     const syllableSelected = this.getAttribute('data-syllable');
+                    const optData = data.options.find(o => o.syl === syllableSelected);
                     optionButtons.forEach(b => b.classList.remove('correct', 'incorrect'));
 
                     if (syllableSelected === data.correct) {
@@ -795,7 +820,11 @@ function initFonologicoGames() {
                     } else {
                         playErrorSound();
                         this.classList.add('incorrect');
-                        speakWord("Incorrecto, prueba con otra sílaba.");
+                        if (optData && optData.word) {
+                            speakWord(`Formaste ${optData.word}. Inténtalo de nuevo.`);
+                        } else {
+                            speakWord("Incorrecto, prueba con otra sílaba.");
+                        }
                         setTimeout(() => this.classList.remove('incorrect'), 500);
                     }
                 };
