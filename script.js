@@ -1608,4 +1608,341 @@ function initMorfosintacticoGames() {
 
         loadPragmaticScenario();
     }
+
+    // ==========================================================================
+    // SISTEMA DE MINIJUEGOS DEMO PARA ACTIVIDADES EXTERNAS (WORDWALL / EDUCAPLAY)
+    // ==========================================================================
+    const DEMO_GAMES_CONFIG = {
+        // --- MORFOSINTÁCTICO ---
+        "seccion-numero": {
+            type: "quiz",
+            title: "Demo: Número (Singular y Plural)",
+            examples: [
+                { text: "perros 🐶", question: "¿Es singular (uno) o plural (varios)?", options: ["Singular", "Plural"], correct: "Plural", speech: "perros. ¿Es singular o plural?", success: "¡Excelente! Perros se refiere a varios.", error: "Inténtalo de nuevo. Perros significa más de uno." },
+                { text: "gato 🐱", question: "¿Es singular (uno) o plural (varios)?", options: ["Singular", "Plural"], correct: "Singular", speech: "gato. ¿Es singular o plural?", success: "¡Muy bien! Gato se refiere a uno solo.", error: "No. Gato es solo un animal." }
+            ]
+        },
+        "seccion-sustantivos": {
+            type: "quiz",
+            title: "Demo: Identificar Sustantivos",
+            examples: [
+                { text: "manzana 🍎", question: "¿Qué tipo de palabra es manzana?", options: ["Sustantivo (Cosa)", "Acción (Verbo)"], correct: "Sustantivo (Cosa)", speech: "manzana. ¿Qué tipo de palabra es?", success: "¡Correcto! Manzana es una cosa, por lo tanto es un sustantivo.", error: "No, las acciones son verbos. Manzana es un objeto." },
+                { text: "correr 🏃", question: "¿Es correr un sustantivo?", options: ["Sí", "No (Es una acción)"], correct: "No (Es una acción)", speech: "correr. ¿Es un sustantivo?", success: "¡Excelente! Correr es una acción, no una cosa.", error: "Inténtalo de nuevo. Correr describe un movimiento." }
+            ]
+        },
+        "seccion-adjetivos": {
+            type: "cloze",
+            title: "Demo: Adjetivos Calificativos",
+            examples: [
+                { sentence: "El sol brillante es muy ___ ☀️", options: ["caliente", "saltando", "bajo"], correct: "caliente", speech: "El sol brillante es muy caliente.", success: "¡Correcto! Caliente describe una característica del sol.", error: "Inténtalo de nuevo. Busca una palabra que describa al sol." },
+                { sentence: "La tortuga camina muy ___ 🐢", options: ["rápida", "lenta", "azul"], correct: "lenta", speech: "La tortuga camina muy lenta.", success: "¡Muy bien! Lenta describe cómo se mueve la tortuga.", error: "Esa palabra no concuerda con la lentitud de la tortuga." }
+            ]
+        },
+        "seccion-pronombres": {
+            type: "cloze",
+            title: "Demo: Pronombres Personales",
+            examples: [
+                { sentence: "___ es mi hermana menor. 👧", options: ["Él", "Ella", "Ellos"], correct: "Ella", speech: "Ella es mi hermana menor.", success: "¡Excelente! Usamos Ella para referirnos a una niña.", error: "No, recuerda que se refiere a una niña." },
+                { sentence: "___ somos muy buenos amigos. 👦👧", options: ["Él", "Nosotros", "Ellas"], correct: "Nosotros", speech: "Nosotros somos muy buenos amigos.", success: "¡Correcto! Nosotros nos incluye a ti y a mí.", error: "Esa palabra no nos agrupa a todos." }
+            ]
+        },
+        "seccion-verbos": {
+            type: "cloze",
+            title: "Demo: Acciones (Verbos)",
+            examples: [
+                { sentence: "El pájaro azul ___ por el aire. 🐦", options: ["vuela", "corre", "nada"], correct: "vuela", speech: "El pájaro azul vuela por el aire.", success: "¡Correcto! Los pájaros usan sus alas para volar.", error: "Esa acción no corresponde a un pájaro en el aire." },
+                { sentence: "Los niños ___ fútbol en el parque. ⚽", options: ["juegan", "vuelan", "escriben"], correct: "juegan", speech: "Los niños juegan fútbol en el parque.", success: "¡Muy bien! Juegan es la acción de realizar un deporte.", error: "Esa palabra no concuerda con jugar fútbol." }
+            ]
+        },
+        "seccion-nexos": {
+            type: "cloze",
+            title: "Demo: Nexos en Oraciones",
+            examples: [
+                { sentence: "Llevo paraguas ___ está lloviendo. 🌧️", options: ["porque", "pero", "aunque"], correct: "porque", speech: "Llevo paraguas porque está lloviendo.", success: "¡Correcto! Porque explica la causa de llevar paraguas.", error: "Ese nexo no explica la causa del evento." },
+                { sentence: "Quiero ir a jugar ___ debo estudiar. 📝", options: ["pero", "porque", "si"], correct: "pero", speech: "Quiero ir a jugar pero debo estudiar.", success: "¡Muy bien! Pero indica una limitación u obstáculo.", error: "Esa palabra no expresa oposición." }
+            ]
+        },
+        "seccion-preposiciones": {
+            type: "cloze",
+            title: "Demo: Preposiciones de Lugar",
+            examples: [
+                { sentence: "El gato duerme ___ de la silla. 🐱", options: ["debajo", "con", "para"], correct: "debajo", speech: "El gato duerme debajo de la silla.", success: "¡Correcto! Debajo indica la posición del gato.", error: "Esa palabra no describe una posición espacial." },
+                { sentence: "Voy ___ la casa de mi tía. 🏡", options: ["a", "de", "con"], correct: "a", speech: "Voy a la casa de mi tía.", success: "¡Muy bien! La preposición a indica dirección.", error: "Ese conector no indica movimiento hacia un lugar." }
+            ]
+        },
+        "seccion-adverbios": {
+            type: "cloze",
+            title: "Demo: Adverbios de Tiempo y Lugar",
+            examples: [
+                { sentence: "Mi colegio está muy ___ de mi casa. 🏫", options: ["cerca", "ayer", "mañana"], correct: "cerca", speech: "Mi colegio está muy cerca de mi casa.", success: "¡Excelente! Cerca indica distancia.", error: "Esa palabra se refiere al tiempo, no a la distancia." },
+                { sentence: "___ fui a jugar a la plaza. 🛝", options: ["Ayer", "Arriba", "Cerca"], correct: "Ayer", speech: "Ayer fui a jugar a la plaza.", success: "¡Correcto! Ayer se refiere a un tiempo pasado.", error: "Esa palabra no indica cuándo sucedió." }
+            ]
+        },
+        "seccion-oraciones-complejas": {
+            type: "cloze",
+            title: "Demo: Oraciones Complejas",
+            examples: [
+                { sentence: "Cuando salga el sol, ___ al parque. ☀️", options: ["iremos", "dormiremos", "volaremos"], correct: "iremos", speech: "Cuando salga el sol, iremos al parque.", success: "¡Excelente! Iremos expresa la acción que realizaremos.", error: "Esa acción no concuerda lógicamente con salir el sol e ir al parque." },
+                { sentence: "Si terminas la tarea, ___ jugar. 🎮", options: ["puedes", "debes", "tienes"], correct: "puedes", speech: "Si terminas la tarea, puedes jugar.", success: "¡Muy bien! Expresa el permiso o condición para jugar.", error: "Esa palabra no expresa el permiso condicional de jugar." }
+            ]
+        },
+
+        // --- PRAGMÁTICO ---
+        "seccion-miremos-siente": {
+            type: "quiz",
+            title: "Demo: Reconocer Emociones",
+            examples: [
+                { text: "Juan sonríe ampliamente y aplaude. 😊", question: "¿Cómo se siente Juan?", options: ["Enojado", "Alegre", "Triste"], correct: "Alegre", speech: "Juan sonríe ampliamente y aplaude. ¿Cómo se siente Juan?", success: "¡Excelente! La sonrisa y aplausos indican alegría.", error: "No, las sonrisas no demuestran esa emoción." },
+                { text: "Sofía cruza los brazos y frunce el ceño. 😠", question: "¿Cómo se siente Sofía?", options: ["Asustada", "Enojada", "Alegre"], correct: "Enojada", speech: "Sofía cruza los brazos y frunce el ceño. ¿Cómo se siente Sofía?", success: "¡Correcto! Esa postura corporal denota enfado.", error: "Esa expresión facial no indica miedo o alegría." }
+            ]
+        },
+        "seccion-kinesica": {
+            type: "quiz",
+            title: "Demo: Expresión Corporal",
+            examples: [
+                { text: "Colocar el dedo índice sobre los labios. 🤫", question: "¿Qué significa este gesto?", options: ["Pedir silencio", "Saludar", "Tener sueño"], correct: "Pedir silencio", speech: "Colocar el dedo índice sobre los labios. ¿Qué significa?", success: "¡Muy bien! Es el gesto universal para pedir silencio.", error: "Ese gesto no se usa para saludar o dormir." },
+                { text: "Mover la mano abierta de un lado a otro. 👋", question: "¿Qué significa este gesto?", options: ["Tener frío", "Decir hola o adiós", "Pedir comida"], correct: "Decir hola o adiós", speech: "Mover la mano abierta de un lado a otro. ¿Qué significa?", success: "¡Excelente! Es un saludo o despedida.", error: "No se asocia con frío o comida." }
+            ]
+        },
+        "seccion-manejo-turnos": {
+            type: "quiz",
+            title: "Demo: Respetar Turnos",
+            examples: [
+                { text: "Tu compañero está contando una historia.", question: "¿Qué debes hacer?", options: ["Interrumpirlo para hablar tú", "Escuchar atentamente y esperar", "Darte la vuelta e irte"], correct: "Escuchar atentamente y esperar", speech: "Tu compañero está contando una historia. ¿Qué debes hacer?", success: "¡Correcto! En la conversación debemos saber escuchar.", error: "Eso es descortés y rompe el flujo del diálogo." },
+                { text: "Quieres opinar en la sala de clases.", question: "¿Cómo debes actuar?", options: ["Gritar tu opinión fuerte", "Esperar en silencio", "Levantar la mano y esperar el turno"], correct: "Levantar la mano y esperar el turno", speech: "Quieres opinar en la sala de clases. ¿Cómo debes actuar?", success: "¡Excelente! Levantar la mano ayuda a mantener el orden.", error: "Gritar o solo callarse no ayuda a participar con orden." }
+            ]
+        },
+        "seccion-funcion-instrumental": {
+            type: "quiz",
+            title: "Demo: Pedir Cosas (Instrumental)",
+            examples: [
+                { text: "Tienes mucha sed y quieres agua.", question: "¿Cómo lo pides adecuadamente?", options: ["¡Dame agua!", "Quiero agua, por favor", "El agua es de color azul"], correct: "Quiero agua, por favor", speech: "Tienes mucha sed. ¿Cómo lo pides adecuadamente?", success: "¡Excelente! Expresar deseos con amabilidad es muy efectivo.", error: "Esa no es la forma más educada o clara de pedirlo." },
+                { text: "Quieres usar la pelota de tu amigo.", question: "¿Qué le dices?", options: ["La pelota rebota alto", "Dame tu pelota", "¿Me prestas la pelota, por favor?"], correct: "¿Me prestas la pelota, por favor?", speech: "Quieres usar la pelota de tu amigo. ¿Qué le dices?", success: "¡Muy bien! Pedir prestado con respeto fomenta la amistad.", error: "Esa frase suena imperativa o no es una petición directa." }
+            ]
+        },
+        "seccion-funcion-regulatoria": {
+            type: "quiz",
+            title: "Demo: Dirigir Conducta (Regulatoria)",
+            examples: [
+                { text: "Quieres que tus compañeros hagan silencio para el juego.", question: "¿Qué indicación das?", options: ["El juego es divertido", "¡Todos a escuchar en silencio, por favor!", "Yo sé jugar"], correct: "¡Todos a escuchar en silencio, por favor!", speech: "Quieres que hagan silencio. ¿Qué indicación das?", success: "¡Excelente! Das una instrucción clara para regular al grupo.", error: "Eso no es una instrucción para regular la conducta." },
+                { text: "Le enseñas las reglas de un juego a tu amigo.", question: "¿Qué le dices?", options: ["Ahora te toca lanzar el dado", "El dado es de color blanco", "A mí me gusta jugar"], correct: "Ahora te toca lanzar el dado", speech: "Le enseñas las reglas del juego. ¿Qué le dices?", success: "¡Correcto! Diriges la acción que le corresponde hacer.", error: "Esa es una descripción o gusto, no una regla de acción." }
+            ]
+        },
+        "seccion-funcion-interactiva": {
+            type: "quiz",
+            title: "Demo: Relacionarse (Interactiva)",
+            examples: [
+                { text: "Llegas de visita a la casa de tu tío.", question: "¿Cómo lo saludas?", options: ["Tengo mucha hambre", "¡Hola tío! Qué alegría visitarlo", "Me voy a sentar"], correct: "¡Hola tío! Qué alegría visitarlo", speech: "Llegas de visita. ¿Cómo saludas?", success: "¡Muy bien! Un saludo afectuoso fortalece la relación social.", error: "Eso no demuestra una interacción o cortesía de llegada." },
+                { text: "Un amigo te presta su juguete favorito.", question: "¿Qué le dices?", options: ["El juguete es genial", "Muchas gracias por prestármelo", "Yo tengo uno mejor"], correct: "Muchas gracias por prestármelo", speech: "Te prestan un juguete. ¿Qué le dices?", success: "¡Excelente! Agradecer es clave para la interacción positiva.", error: "Presumir o solo describir no agradece el gesto del amigo." }
+            ]
+        },
+        "seccion-funcion-personal": {
+            type: "quiz",
+            title: "Demo: Expresar Identidad (Personal)",
+            examples: [
+                { text: "Te preguntan qué opinas del helado de frutilla.", question: "¿Cómo respondes expresando tu gusto?", options: ["El helado es frío", "A mí me parece delicioso", "Se vende en la esquina"], correct: "A mí me parece delicioso", speech: "Te preguntan por tu helado favorito. ¿Cómo respondes?", success: "¡Correcto! Expresas tu gusto y opinión personal.", error: "Esa es una descripción objetiva o de ubicación, no tu gusto." },
+                { text: "Quieres contarle a tu amigo cuál es tu juego favorito.", question: "¿Qué le dices?", options: ["Los juegos son entretenidos", "Mi juego favorito son las escondidas", "Hay un juego en el patio"], correct: "Mi juego favorito son las escondidas", speech: "Quieres contar tu juego favorito. ¿Qué dices?", success: "¡Excelente! Verbalizas tus preferencias personales.", error: "Esa frase habla de los juegos en general, no de ti." }
+            ]
+        },
+        "seccion-funciones-heuristicas": {
+            type: "quiz",
+            title: "Demo: Investigar el Entorno (Heurística)",
+            examples: [
+                { text: "Ves una planta extraña en el jardín.", question: "¿Qué preguntas para conocer más sobre ella?", options: ["La planta tiene hojas", "¡Qué bonita planta!", "¿Cómo se llama esta planta y qué cuidados requiere?"], correct: "¿Cómo se llama esta planta y qué cuidados requiere?", speech: "Ves una planta extraña. ¿Qué preguntas?", success: "¡Excelente! Formular preguntas es clave para aprender del entorno.", error: "Eso es una descripción o exclamación, no una pregunta indagatoria." },
+                { text: "Quieres saber por qué sale el arcoíris.", question: "¿Qué preguntas?", options: ["El arcoíris tiene muchos colores", "¿Por qué sale el arcoíris después de llover?", "Ayer vi un arcoíris"], correct: "¿Por qué sale el arcoíris después de llover?", speech: "Quieres saber sobre el arcoíris. ¿Qué preguntas?", success: "¡Correcto! Buscas comprender la causa de un fenómeno.", error: "Esa frase describe o relata, no indaga." }
+            ]
+        },
+        "seccion-funcion-representativa": {
+            type: "quiz",
+            title: "Demo: Informar Hechos (Representativa)",
+            examples: [
+                { text: "Tu amigo no sabe cuándo es la excursión escolar.", question: "¿Cómo le informas objetivamente?", options: ["La excursión será este viernes a las 9 de la mañana", "¡Qué divertida la excursión!", "Ojalá vayamos en autobús"], correct: "La excursión será este viernes a las 9 de la mañana", speech: "Tu amigo no sabe de la excursión. ¿Cómo le informas?", success: "¡Excelente! Transmites información fáctica y objetiva.", error: "Esa es una emoción o deseo, no un dato concreto." },
+                { text: "Quieres avisar que se derramó el agua en el piso.", question: "¿Qué dices?", options: ["El agua sirve para limpiar", "Se cayó el vaso y el piso está mojado", "Me gusta jugar con agua"], correct: "Se cayó el vaso y el piso está mojado", speech: "Avisas que se cayó el agua. ¿Qué dices?", success: "¡Correcto! Informas un hecho real acontecido.", error: "Esa es una opinión o descripción general, no un reporte." }
+            ]
+        },
+        "seccion-discurso-narrativo": {
+            type: "quiz",
+            title: "Demo: Narrar Sucesos",
+            examples: [
+                { text: "Quieres contar tu mañana escolar en orden.", question: "¿Cómo ordenas tu historia?", options: ["Al final almorcé en casa", "Primero entré a clases, luego jugué en el recreo y al final almorcé", "Jugué en el recreo después de almorzar"], correct: "Primero entré a clases, luego jugué en el recreo y al final almorcé", speech: "Quieres contar tu mañana en orden. ¿Cómo ordenas tu historia?", success: "¡Excelente! Mantienes una secuencia temporal lógica.", error: "Esa secuencia no está ordenada cronológicamente." },
+                { text: "Te preguntan cómo termina una historia típica.", question: "¿Qué frase final es la más adecuada?", options: ["Había una vez...", "Y vivieron felices para siempre.", "De repente, apareció un lobo."], correct: "Y vivieron felices para siempre.", speech: "Te preguntan cómo termina una historia. ¿Qué frase final usas?", success: "¡Muy bien! Es la frase clásica de cierre narrativo.", error: "Esa frase se usa para iniciar o en el clímax de la historia." }
+            ]
+        },
+        "seccion-intencion-comunicativa": {
+            type: "quiz",
+            title: "Demo: Entender la Intención",
+            examples: [
+                { text: "Tu mamá dice: '¡Qué frío hace aquí!' mirando la ventana abierta.", question: "¿Qué quiere que hagas realmente?", options: ["Que le hables del clima", "Que cierres la ventana", "Que sonrías"], correct: "Que cierres la ventana", speech: "Tu mamá dice que hace frío mirando la ventana. ¿Qué quiere realmente?", success: "¡Excelente! Interpretas el acto de habla indirecto.", error: "No, su intención indirecta es modificar la temperatura cerrando la ventana." },
+                { text: "El profesor dice: '¿Podemos escuchar con atención?'.", question: "¿Qué te está pidiendo?", options: ["Que le respondas 'Sí'", "Que dejes de hablar y escuches", "Que grites fuerte"], correct: "Que dejes de hablar y escuches", speech: "El profesor pide escuchar con atención. ¿Qué te está pidiendo?", success: "¡Correcto! Te solicita amablemente mantener el orden.", error: "No es una pregunta literal, es una orden cortés." }
+            ]
+        },
+        "seccion-gestos-comunicativos": {
+            type: "quiz",
+            title: "Demo: Significado de Gestos",
+            examples: [
+                { text: "Encogerse de hombros y levantar las manos. 🤷", question: "¿Qué significa?", options: ["No lo sé / No entiendo", "Estoy feliz", "Tengo frío"], correct: "No lo sé / No entiendo", speech: "Encogerse de hombros. ¿Qué significa?", success: "¡Muy bien! Indica desconocimiento o confusión.", error: "Ese gesto no expresa alegría o frío." },
+                { text: "Hacer un círculo con el dedo índice al lado de la sien. 🤪", question: "¿Qué significa coloquialmente?", options: ["Que alguien está loco o bromeando", "Que tengo dolor de cabeza", "Que estoy pensando una idea"], correct: "Que alguien está loco o bromeando", speech: "Hacer un círculo al lado de la sien. ¿Qué significa?", success: "¡Excelente! Denota locura o broma en nuestro contexto social.", error: "No se asocia con dolor o pensamiento concentrado." }
+            ]
+        }
+    };
+
+    function initDemoGames() {
+        Object.keys(DEMO_GAMES_CONFIG).forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (!section) return;
+
+            const card = section.querySelector('.game-card');
+            if (!card) return;
+
+            // Encontrar el botón de redirección existente para rescatar el link y texto original
+            let originalLink = '#';
+            let originalText = 'Iniciar Actividad ↗';
+
+            const wordwallLink = card.querySelector('.wordwall-link-btn, .game-secondary-btn[href*="wordwall"]');
+            const educaplayLink = card.querySelector('.educaplay-link-btn, .game-secondary-btn[href*="educaplay"]');
+
+            if (wordwallLink) {
+                originalLink = wordwallLink.getAttribute('href');
+                originalText = wordwallLink.innerText;
+            } else if (educaplayLink) {
+                originalLink = educaplayLink.getAttribute('href');
+                originalText = educaplayLink.innerText;
+            } else {
+                const anyLink = card.querySelector('a');
+                if (anyLink) {
+                    originalLink = anyLink.getAttribute('href');
+                    originalText = anyLink.innerText;
+                }
+            }
+
+            const config = DEMO_GAMES_CONFIG[sectionId];
+            let currentExIndex = 0;
+            let locked = false;
+
+            // Reconstruir la tarjeta con la demo
+            card.innerHTML = `
+                <div class="game-info">
+                    <span class="game-title">${config.title}</span>
+                    <p class="game-description" id="desc-${sectionId}" style="min-height:36px;">Cargando ejemplo...</p>
+                </div>
+                <div class="game-level-header">
+                    <span class="game-level-indicator" id="indicator-${sectionId}">Ejemplo 1 de 2</span>
+                    <button class="game-speak-btn" id="speak-${sectionId}" title="Escuchar">🔊 Escuchar</button>
+                </div>
+                <div class="mock-pragmatic-game" style="border-color: inherit; margin-bottom: 15px;">
+                    <div class="pragmatic-chat-container" id="game-arena-${sectionId}" style="min-height: auto; padding: 15px; background: #fffdfc;">
+                        <!-- Aquí va la pregunta o el texto de la oración -->
+                    </div>
+                    <div style="padding: 10px 0 0 0;">
+                        <div class="pragmatic-options-grid" id="options-${sectionId}">
+                            <!-- Opciones -->
+                        </div>
+                    </div>
+                </div>
+                <div class="game-controls-row" style="margin-bottom: 15px;">
+                    <button class="game-next-btn" id="next-${sectionId}" style="display: none;">Siguiente Ejemplo ➔</button>
+                </div>
+                <a href="${originalLink}" target="_blank" rel="noopener" class="game-secondary-btn" style="width: 100%; text-align: center; justify-content: center; box-sizing: border-box; display: inline-flex;">
+                    ${originalText}
+                </a>
+            `;
+
+            const descElem = card.querySelector(`#desc-${sectionId}`);
+            const indicatorElem = card.querySelector(`#indicator-${sectionId}`);
+            const arenaElem = card.querySelector(`#game-arena-${sectionId}`);
+            const optionsElem = card.querySelector(`#options-${sectionId}`);
+            const nextBtn = card.querySelector(`#next-${sectionId}`);
+            const speakBtn = card.querySelector(`#speak-${sectionId}`);
+
+            function loadExample() {
+                const ex = config.examples[currentExIndex];
+                locked = false;
+                nextBtn.style.display = 'none';
+
+                indicatorElem.innerText = `Ejemplo ${currentExIndex + 1} de ${config.examples.length}`;
+
+                if (config.type === 'quiz') {
+                    descElem.innerText = ex.question;
+                    arenaElem.innerHTML = `
+                        <div style="font-size: 1.2rem; font-weight: 700; text-align: center; color: inherit; width: 100%;">
+                            ${ex.text}
+                        </div>
+                    `;
+                } else if (config.type === 'cloze') {
+                    descElem.innerText = "Completa la oración seleccionando la palabra correcta.";
+                    arenaElem.innerHTML = `
+                        <div style="font-size: 1.15rem; font-weight: 700; text-align: center; color: inherit; width: 100%;">
+                            ${ex.sentence}
+                        </div>
+                    `;
+                }
+
+                // Generar y barajar opciones
+                const shuffled = [...ex.options].sort(() => Math.random() - 0.5);
+                optionsElem.innerHTML = '';
+                shuffled.forEach((opt, idx) => {
+                    const colorClass = idx === 0 ? 'blue' : (idx === 1 ? 'red' : 'orange');
+                    const isCorrect = opt === ex.correct;
+
+                    const btn = document.createElement('button');
+                    btn.className = `pragmatic-opt-btn ${colorClass}`;
+                    btn.style.padding = '10px 14px';
+                    btn.style.fontSize = '1rem';
+                    btn.innerText = opt;
+
+                    btn.addEventListener('click', function() {
+                        if (locked) return;
+                        locked = true;
+
+                        if (isCorrect) {
+                            playSuccessSound();
+                            this.classList.add('correct');
+                            
+                            // Mostrar la palabra en la oración si es cloze
+                            if (config.type === 'cloze') {
+                                arenaElem.innerHTML = `
+                                    <div style="font-size: 1.15rem; font-weight: 700; text-align: center; color: #27ae60; width: 100%;">
+                                        ${ex.sentence.replace('___', `<strong style="text-decoration: underline;">${ex.correct}</strong>`)}
+                                    </div>
+                                `;
+                            }
+
+                            speakWord(ex.success || "¡Correcto! Muy bien hecho.");
+                            nextBtn.style.display = 'inline-flex';
+                        } else {
+                            playErrorSound();
+                            this.classList.add('incorrect');
+                            speakWord(ex.error || "Inténtalo de nuevo.");
+                            
+                            setTimeout(() => {
+                                this.classList.remove('incorrect');
+                                locked = false;
+                            }, 1500);
+                        }
+                    });
+
+                    optionsElem.appendChild(btn);
+                });
+            }
+
+            speakBtn.addEventListener('click', () => {
+                const ex = config.examples[currentExIndex];
+                if (config.type === 'quiz') {
+                    speakWord(ex.speech || `${ex.text}. ${ex.question}`);
+                } else if (config.type === 'cloze') {
+                    speakWord(ex.speech || ex.sentence.replace('___', 'blanco'));
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentExIndex = (currentExIndex + 1) % config.examples.length;
+                loadExample();
+            });
+
+            loadExample();
+        });
+    }
+
+    // Inicializar juegos demo al final de la carga
+    initDemoGames();
 }

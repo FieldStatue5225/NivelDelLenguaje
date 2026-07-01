@@ -2851,6 +2851,29 @@ body.green-theme .pragmatic-opt-btn:active {
     box-shadow: 0 2px 0 #1b4d3e;
 }
 
+body.terracotta-theme .mock-pragmatic-game {
+    border-color: #4e1f13;
+}
+body.terracotta-theme .pragmatic-chat-container {
+    border-color: #4e1f13;
+}
+body.terracotta-theme .chat-bubble {
+    border-color: #4e1f13;
+}
+body.terracotta-theme .chat-bubble.left {
+    color: #4e1f13;
+}
+body.terracotta-theme .pragmatic-opt-btn {
+    border-color: #4e1f13;
+    box-shadow: 0 4px 0 #4e1f13;
+}
+body.terracotta-theme .pragmatic-opt-btn:hover {
+    box-shadow: 0 6px 0 #4e1f13;
+}
+body.terracotta-theme .pragmatic-opt-btn:active {
+    box-shadow: 0 2px 0 #4e1f13;
+}
+
 .pragmatic-opt-btn.blue { background-color: #2f80ed; }
 .pragmatic-opt-btn.red { background-color: #eb5757; }
 .pragmatic-opt-btn.orange { background-color: #f2994a; }
