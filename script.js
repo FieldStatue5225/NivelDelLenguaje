@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
             currentTextColor = '#2d0b4e';
         } else if (document.body.classList.contains('terracotta-theme')) {
             currentTextColor = '#4e1f13';
+        } else if (document.body.classList.contains('green-theme')) {
+            currentTextColor = '#1b4d3e';
         }
         transText.style.color = currentTextColor;
 
@@ -114,6 +116,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else if (href.includes('morfosintactico')) {
                         targetColor = '#f3cab8';
                         targetTextColor = '#4e1f13';
+                    } else if (href.includes('pragmatico')) {
+                        targetColor = '#e3ece4';
+                        targetTextColor = '#1b4d3e';
                     }
                     
                     overlay.style.backgroundColor = targetColor;
@@ -1430,5 +1435,150 @@ function initMorfosintacticoGames() {
         });
 
         loadSequence();
+    }
+
+    // ==========================================================================
+    // JUEGO DE REPARACIÓN PRAGMÁTICA (¿Cómo repararías la conversación?)
+    // ==========================================================================
+    const pragmaticGame = document.getElementById('pragmatic-game');
+    if (pragmaticGame) {
+        const scenarios = [
+            {
+                title: "Petición Indirecta",
+                speechPrompt: "Escucha la conversación. A dice: ¿Tienes hora? B dice: Sí, claro, y se queda callado. ¿Cómo debería responder B para reparar el malentendido?",
+                messages: [
+                    { sender: "Persona A", text: "¿Tienes hora? ⏰", isLeft: true },
+                    { sender: "Persona B", text: "Sí, claro. (Se queda callado) 🤐", isLeft: false }
+                ],
+                question: "¿Cómo debería responder B para ayudar a A?",
+                options: [
+                    { text: "Decir: \"Son las 3 de la tarde.\"", isCorrect: true, class: "blue" },
+                    { text: "Decir: \"Qué bueno que tengas prisa.\"", isCorrect: false, class: "red" },
+                    { text: "Quedarse en silencio y sonreír.", isCorrect: false, class: "orange" }
+                ],
+                successSpeech: "¡Excelente! B entendió que A hacía una pregunta indirecta para saber la hora.",
+                errorSpeech: "Eso no repara la conversación. B debe responder con la hora."
+            },
+            {
+                title: "Petición de Objeto",
+                speechPrompt: "Escucha la conversación. A dice: Me gusta mucho tu lápiz. B dice: Gracias, a mí también, y sigue escribiendo. ¿Qué intención indirecta tenía la persona A?",
+                messages: [
+                    { sender: "Persona A", text: "Me gusta mucho tu lápiz... ✏️", isLeft: true },
+                    { sender: "Persona B", text: "Gracias, a mí también. (Sigue escribiendo) 📝", isLeft: false }
+                ],
+                question: "¿Qué intención indirecta tenía la persona A?",
+                options: [
+                    { text: "Quería que le prestara el lápiz.", isCorrect: true, class: "blue" },
+                    { text: "Quería comprarle el lápiz.", isCorrect: false, class: "red" },
+                    { text: "Quería criticar el lápiz.", isCorrect: false, class: "orange" }
+                ],
+                successSpeech: "¡Muy bien! A quería pedir prestado el lápiz de forma indirecta.",
+                errorSpeech: "Inténtalo de nuevo. A no quería comprarlo, sino usarlo."
+            },
+            {
+                title: "Ironía y Tono de Voz",
+                speechPrompt: "Escucha la conversación. A dice con voz triste y mirando al suelo: El examen estuvo genial. ¿Cómo se siente realmente la persona A?",
+                messages: [
+                    { sender: "Persona A", text: "El examen estuvo... genial... (Voz triste y mirando al suelo) 😔", isLeft: true }
+                ],
+                question: "¿Cómo se siente realmente la persona A sobre su examen?",
+                options: [
+                    { text: "Le fue mal y está triste.", isCorrect: true, class: "blue" },
+                    { text: "Está muy feliz y contenta.", isCorrect: false, class: "red" },
+                    { text: "No le importa el examen.", isCorrect: false, class: "orange" }
+                ],
+                successSpeech: "¡Magnífico! Lograste interpretar la ironía y el lenguaje corporal de A.",
+                errorSpeech: "No, su tono de voz y postura indican que está triste por el resultado."
+            }
+        ];
+
+        let currentPragIndex = 0;
+        const titleElem = document.getElementById('pragmatic-title');
+        const chatContainer = document.getElementById('pragmatic-chat-container');
+        const questionElem = document.getElementById('pragmatic-question');
+        const optionsGrid = document.getElementById('pragmatic-options-grid');
+        const nextBtn = document.getElementById('pragmatic-next');
+        const ttsBtn = document.getElementById('pragmatic-speak-btn');
+        let optionsLocked = false;
+
+        function loadPragmaticScenario() {
+            const data = scenarios[currentPragIndex];
+            titleElem.innerText = data.title;
+            document.getElementById('pragmatic-level-indicator').innerText = `Ejemplo ${currentPragIndex + 1} de ${scenarios.length}`;
+            nextBtn.style.display = 'none';
+            optionsLocked = false;
+
+            // Cargar mensajes en el chat
+            let chatHtml = '';
+            data.messages.forEach(m => {
+                const alignmentClass = m.isLeft ? 'left' : 'right';
+                chatHtml += `
+                    <div class="chat-bubble ${alignmentClass}">
+                        <span class="chat-bubble-sender">${m.sender}</span>
+                        ${m.text}
+                    </div>
+                `;
+            });
+            chatContainer.innerHTML = chatHtml;
+
+            // Cargar pregunta y opciones
+            questionElem.innerText = data.question;
+            
+            // Barajar opciones
+            const shuffledOptions = [...data.options].sort(() => Math.random() - 0.5);
+            let optionsHtml = '';
+            shuffledOptions.forEach(opt => {
+                optionsHtml += `
+                    <button class="pragmatic-opt-btn ${opt.class}" data-correct="${opt.isCorrect}">
+                        ${opt.text}
+                    </button>
+                `;
+            });
+            optionsGrid.innerHTML = optionsHtml;
+
+            bindPragmaticEvents();
+            
+            // Hablar consigna inicial
+            speakWord(data.speechPrompt);
+        }
+
+        function bindPragmaticEvents() {
+            const buttons = optionsGrid.querySelectorAll('.pragmatic-opt-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (optionsLocked) return;
+                    
+                    const isCorrect = this.getAttribute('data-correct') === 'true';
+                    optionsLocked = true;
+
+                    if (isCorrect) {
+                        playSuccessSound();
+                        this.classList.add('correct');
+                        speakWord(scenarios[currentPragIndex].successSpeech);
+                        nextBtn.style.display = 'inline-flex';
+                    } else {
+                        playErrorSound();
+                        this.classList.add('incorrect');
+                        speakWord(scenarios[currentPragIndex].errorSpeech);
+                        // Desbloquear para intentar de nuevo
+                        setTimeout(() => {
+                            this.classList.remove('incorrect');
+                            optionsLocked = false;
+                        }, 1500);
+                    }
+                });
+            });
+        }
+
+        ttsBtn.addEventListener('click', () => {
+            speakWord(scenarios[currentPragIndex].speechPrompt);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentPragIndex = (currentPragIndex + 1) % scenarios.length;
+            loadPragmaticScenario();
+        });
+
+        loadPragmaticScenario();
     }
 }
