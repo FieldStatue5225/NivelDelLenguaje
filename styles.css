@@ -633,16 +633,16 @@ body.green-theme .navbar {
 
 /* Color de las piezas adaptadas al tema */
 body.green-theme {
-    --puzzle-color: #1b4d3e;
+    --puzzle-color: #cce2d3;
 }
 body.purple-theme {
-    --puzzle-color: #2d0b4e;
+    --puzzle-color: #dcd0f0;
 }
 body.terracotta-theme {
-    --puzzle-color: #4e1f13;
+    --puzzle-color: #f2cebf;
 }
 body.amber-theme {
-    --puzzle-color: #7c5a0b;
+    --puzzle-color: #f5e5b3;
 }
 
 /* Texto de la Transición */

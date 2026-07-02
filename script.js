@@ -179,19 +179,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Definir color del texto y del puzle según la página actual
         let currentTextColor = '#1a1a1a';
-        let currentPuzzleColor = '#1a1a1a';
+        let currentPuzzleColor = '#ebdcd0';
         if (document.body.classList.contains('purple-theme')) {
             currentTextColor = '#2d0b4e';
-            currentPuzzleColor = '#2d0b4e';
+            currentPuzzleColor = '#dcd0f0';
         } else if (document.body.classList.contains('terracotta-theme')) {
             currentTextColor = '#4e1f13';
-            currentPuzzleColor = '#4e1f13';
+            currentPuzzleColor = '#f2cebf';
         } else if (document.body.classList.contains('green-theme')) {
             currentTextColor = '#1b4d3e';
-            currentPuzzleColor = '#1b4d3e';
+            currentPuzzleColor = '#cce2d3';
         } else if (document.body.classList.contains('amber-theme')) {
             currentTextColor = '#7c5a0b';
-            currentPuzzleColor = '#7c5a0b';
+            currentPuzzleColor = '#f5e5b3';
         }
         transText.style.color = currentTextColor;
         overlay.style.setProperty('--puzzle-color', currentPuzzleColor);
@@ -265,19 +265,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
 
                     // Definir color de las piezas y de texto destino
-                    let targetPuzzleColor = '#1a1a1a';
+                    let targetPuzzleColor = '#ebdcd0';
                     let targetTextColor = '#1a1a1a';
                     if (href.includes('fonologico')) {
-                        targetPuzzleColor = '#2d0b4e';
+                        targetPuzzleColor = '#dcd0f0';
                         targetTextColor = '#2d0b4e';
                     } else if (href.includes('morfosintactico')) {
-                        targetPuzzleColor = '#4e1f13';
+                        targetPuzzleColor = '#f2cebf';
                         targetTextColor = '#4e1f13';
                     } else if (href.includes('semantico')) {
-                        targetPuzzleColor = '#7c5a0b';
+                        targetPuzzleColor = '#f5e5b3';
                         targetTextColor = '#7c5a0b';
                     } else if (href.includes('pragmatico')) {
-                        targetPuzzleColor = '#1b4d3e';
+                        targetPuzzleColor = '#cce2d3';
                         targetTextColor = '#1b4d3e';
                     }
                     
