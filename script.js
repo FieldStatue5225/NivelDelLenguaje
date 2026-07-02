@@ -1870,6 +1870,30 @@ function initMorfosintacticoGames() {
                 { text: "Elementos: 'manzana, plátano, uva' 🍎🍌🍇", question: "¿A qué grupo pertenecen?", options: ["Frutas", "Verduras", "Juguetes"], correct: "Frutas", speech: "Manzana, plátano y uva. ¿A qué grupo pertenecen?", success: "¡Correcto! Todos son deliciosos tipos de frutas.", error: "No son verduras o juguetes. Son frutas de comer." },
                 { text: "Elementos: 'perro, gato, león' 🐶🐱🦁", question: "¿A qué grupo pertenecen?", options: ["Animales", "Plantas", "Medios de transporte"], correct: "Animales", speech: "Perro, gato y león. ¿A qué grupo pertenecen?", success: "¡Excelente! Son animales domésticos y salvajes.", error: "No son plantas ni vehículos. Son seres vivos animales." }
             ]
+        },
+        "seccion-adivina-conceptos": {
+            type: "quiz",
+            title: "Demo: Adivinar Conceptos",
+            examples: [
+                { text: "Pista: Sirve para escribir y tiene una goma atrás. ✏️", question: "¿Qué útil escolar es?", options: ["Lápiz", "Regla", "Tijeras"], correct: "Lápiz", speech: "Sirve para escribir y tiene una goma atrás. ¿Qué útil escolar es?", success: "¡Excelente! El lápiz sirve para escribir y borrar.", error: "Inténtalo de nuevo. Piensa en el objeto con el que escribes." },
+                { text: "Pista: Rey de la selva con una gran melena. 🦁", question: "¿Qué animal es?", options: ["León", "Oso", "Jirafa"], correct: "León", speech: "Rey de la selva con una gran melena. ¿Qué animal es?", success: "¡Muy bien! El león es conocido como el rey de la selva.", error: "No. ¿Qué felino ruge fuerte y tiene melena?" }
+            ]
+        },
+        "seccion-definiciones-simples": {
+            type: "quiz",
+            title: "Demo: Definiciones Simples",
+            examples: [
+                { text: "Pregunta: ¿Qué prenda se define como: 'Ropa que cubre el pie y parte de la pierna'? 🧦", question: "Selecciona la palabra correcta:", options: ["Calcetín", "Sombrero", "Camiseta"], correct: "Calcetín", speech: "Qué prenda se define como ropa que cubre el pie y parte de la pierna.", success: "¡Excelente! Los calcetines abrigan nuestros pies.", error: "No. Eso se usa en la cabeza o el torso. Piensa en tus pies." },
+                { text: "Pregunta: ¿Qué objeto se define como: 'Instrumento para cortar papel o tela'? ✂️", question: "Selecciona la palabra correcta:", options: ["Tijeras", "Lápiz", "Regla"], correct: "Tijeras", speech: "Qué objeto se define como instrumento para cortar papel o tela.", success: "¡Muy bien! Las tijeras sirven para recortar.", error: "No, las reglas o lápices no sirven para recortar." }
+            ]
+        },
+        "seccion-lenguaje-figurado": {
+            type: "quiz",
+            title: "Demo: Lenguaje Figurado",
+            examples: [
+                { text: "Dicho: '¡Esa torta me costó un ojo de la cara!' 👁️💰", question: "¿Qué significa realmente?", options: ["Que era extremadamente cara", "Que tuvo que dar su ojo físico", "Que estaba muy barata"], correct: "Que era extremadamente cara", speech: "¡Esa torta me costó un ojo de la cara! ¿Qué significa realmente?", success: "¡Excelente! Significa que el precio era muy elevado.", error: "No, es una metáfora. Nadie da sus ojos por una torta." },
+                { text: "Dicho: '¡Se me puso la piel de gallina!' 🐔🥶", question: "¿Qué significa realmente?", options: ["Que sintió frío o mucho susto", "Que le crecieron plumas", "Que se convirtió en gallina"], correct: "Que sintió frío o mucho susto", speech: "¡Se me puso la piel de gallina! ¿Qué significa realmente?", success: "¡Muy bien! Es la reacción de la piel al frío o miedo.", error: "No es literal. ¿Cuándo tiembla nuestra piel de esa forma?" }
+            ]
         }
     };
 
